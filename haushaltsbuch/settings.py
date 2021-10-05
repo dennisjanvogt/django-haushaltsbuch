@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(yyzid)p429u8z7y#y7_y99-!by(wr#)^e5f6q3hb7k7rvc-22
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['haushaltsbuchapps.herokuapp.com']
+ALLOWED_HOSTS = ['haushaltsbuchapps.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
