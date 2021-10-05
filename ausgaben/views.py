@@ -52,7 +52,7 @@ def index(request):
         "aktueller_monat": aktueller_monat,
         }
 
-    return render(request, 'ausgaben\index.html', context)
+    return render(request, 'ausgaben/index.html', context)
 
 
 
