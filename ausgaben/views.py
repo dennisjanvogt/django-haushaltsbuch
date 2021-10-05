@@ -13,13 +13,15 @@ def index(request):
     rechnungen = Rechnung.objects.all().order_by('-datum')
     today = datetime.date.today()
     aktueller_monat = datetime.datetime.now().strftime("%B").upper()
+    aktuelle_rechnungen = []
     aktuelle_rechnungen = rechnungen.filter(datum__year=today.year, datum__month=today.month)
     
     
     # aktuelle Summe ermitteln
     summe_monat = 0.0
-    for rechnung in aktuelle_rechnungen:
-        summe_monat += rechnung.betrag
+    if len(aktuelle_rechnungen) > 0:
+        for rechnung in aktuelle_rechnungen:
+            summe_monat += rechnung.betrag
 
 
     # letzte Summe ermitteln
