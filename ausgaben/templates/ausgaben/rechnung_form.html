@@ -1,0 +1,37 @@
+{% extends 'ausgaben/main.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<h1 class="text-center">Neue Rechnung</h1><br>
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table class="table">
+            <tr>
+                <td>Datum</td>
+                <td>{{ form.datum|as_crispy_field }}</td>
+            </tr>
+            <tr>
+                <td>Betrag</td>
+                <td>{{ form.betrag|as_crispy_field }}</td>
+            </tr>
+            <tr>
+                <td>Beschreibung</td>
+                <td>{{ form.beschreibung|as_crispy_field }}</td>
+            </tr>
+            <tr>
+                <td>Kategorie</td>
+                <td>{{ form.kategorie|as_crispy_field }}</td>
+            </tr>
+    </table>
+    <input type="submit" value="Speichern" class="btn btn-primary">
+</form>
+
+{% endblock %}
+
+
+

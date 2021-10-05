@@ -1,0 +1,1 @@
+web gununicorn haushaltsbuch.wsgi --log-file -

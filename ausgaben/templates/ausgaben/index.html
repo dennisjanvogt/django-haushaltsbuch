@@ -1,0 +1,61 @@
+{% extends 'ausgaben/main.html' %}
+
+{% block content %}
+
+
+
+<h1 class="text-center">AUSGABEN für {{ aktueller_monat }}</p><br>
+
+
+<div class="card-group mb-3">
+    <div class="card bg-success m-1">
+            <div class="card-body">
+            <h5 class="card-title text-center">Summe Ausgaben</h5>
+            <h1 class="card-text text-center">{{ summe_monat }} €</h1>
+        </div>
+    </div>
+    <div class="card bg-danger m-1">
+        <div class="card-body">
+            <h5 class="card-title text-center">Letzter Monat</h5>
+            <h1 class="card-text text-center">{{ summe_letzter_monat }} €</h1>
+        </div>
+    </div>
+    <div class="card bg-primary m-1">
+        <div class="card-body">
+            <h5 class="card-title text-center">Top Kategorie</h5>
+            <h1 class="card-text text-center">{{ top_kategorie }}</h1>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<table class="table">
+    <tr class="table-dark">
+        <th>Datum</th>
+        <th>Betrag in €</th>
+        <th>Beschreibung</th>
+        <th>Kategorie</th>
+        <th>Ändern</th>
+        <th>Löschen</th>
+    </tr>
+    {% for rechnung in rechnungen %}
+    <tr>
+        <td>{{ rechnung.datum }}</td>
+        <td>{{ rechnung.betrag }}</td>
+        <td>{{ rechnung.beschreibung }}</td>
+        <td>{{ rechnung.kategorie }}</td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'update_rechnung' rechnung.id %}">Ändern</a></td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_rechnung' rechnung.id %}">Löschen</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}
+
+

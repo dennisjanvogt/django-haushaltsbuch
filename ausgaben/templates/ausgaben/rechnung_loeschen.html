@@ -1,0 +1,29 @@
+{% extends 'ausgaben/main.html' %}
+
+
+
+
+{% block content %}
+
+<h1 class="text-center">Rechnung löschen</p><br>
+
+
+<div class="row">
+    <div class="card card-body">
+
+
+        <p>Wollen Sie wirklich die Rechnung vom <b>{{rechnung.datum}}</b> in Höhe von <b>{{rechnung.betrag}}</b> für <b>{{rechnung.beschreibung}} löschen?</b></p>
+
+        <form action="{% url 'delete_rechnung' rechnung.id  %}" method="POST">
+            
+            {% csrf_token %}
+            <a class="btn btn-warning" href="{% url 'index_ausgaben' %}">Abbrechen</a>
+            <input class="btn btn-danger" type="submit" value="Löschen">
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
